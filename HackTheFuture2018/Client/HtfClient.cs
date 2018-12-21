@@ -71,6 +71,14 @@ namespace HackTheFuture2018.Client
             var bla = "";
         }
 
+        public async Task PostChallenge4()
+        {
+            var res = await _client.GetAsync(_base_url + "7a34919d6dd4c2d9c3f05c6957946b82");
+            var stringRes = await res.Content.ReadAsStringAsync();
+            var response = JsonConvert.DeserializeObject<Challenge1Response>(stringRes);
+            var id = response.Id;
+        }
+
         private StringContent CreateJsonBody<T>(T message)
         {
             var serialized = JsonConvert.SerializeObject(message);
