@@ -16,10 +16,10 @@ namespace HackTheFuture2018
     {
         private static readonly HtfClient htfClient = new HtfClient();
 
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
+            await htfClient.PostChallenge2();
             CreateWebHostBuilder(args).Build().Run();
-            htfClient.GetChallenge();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

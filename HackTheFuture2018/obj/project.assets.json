@@ -12082,11 +12082,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Xari\\source\\repos\\HackTheFuture2018\\HackTheFuture2018.csproj",
+      "projectUniqueName": "C:\\Users\\Xari\\source\\Involved.HackTheFuture2018\\HackTheFuture2018\\HackTheFuture2018.csproj",
       "projectName": "HackTheFuture2018",
-      "projectPath": "C:\\Users\\Xari\\source\\repos\\HackTheFuture2018\\HackTheFuture2018.csproj",
+      "projectPath": "C:\\Users\\Xari\\source\\Involved.HackTheFuture2018\\HackTheFuture2018\\HackTheFuture2018.csproj",
       "packagesPath": "C:\\Users\\Xari\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Xari\\source\\repos\\HackTheFuture2018\\obj\\",
+      "outputPath": "C:\\Users\\Xari\\source\\Involved.HackTheFuture2018\\HackTheFuture2018\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
