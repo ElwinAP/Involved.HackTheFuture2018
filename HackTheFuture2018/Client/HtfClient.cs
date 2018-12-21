@@ -60,15 +60,8 @@ namespace HackTheFuture2018.Client
             };
 
             Thread.Sleep(1000);
-
-            var body = CreateJsonBody(answer);
-            
+            var body = CreateJsonBody(answer);            
             var postRes = await _client.PostAsync(_base_url + "593bc0a2e0dfdc53b239bc2a96ab0fd5", body);
-
-            var jsonbla = await body.ReadAsStringAsync();
-            var responsebla = JsonConvert.DeserializeObject<Challenge1Answer>(jsonbla);
-            var resbla = await postRes.Content.ReadAsStringAsync();
-            var bla = "";
         }
 
         public async Task PostChallenge4()
@@ -77,6 +70,48 @@ namespace HackTheFuture2018.Client
             var stringRes = await res.Content.ReadAsStringAsync();
             var response = JsonConvert.DeserializeObject<Challenge1Response>(stringRes);
             var id = response.Id;
+
+            var start = Convert.ToInt32(response.Question.InputValues.Single(i => i.Name == "start").Data);
+            var end = Convert.ToInt32(response.Question.InputValues.Single(i => i.Name == "end").Data);
+
+            var answerValues = new List<Values>();
+
+            for (var x = start; x < end; x++)
+            {
+                var isPrime = true;
+                for (var y = 2; y <= Math.Sqrt(x); y++)
+                {
+                    if (x % y == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                {
+                    var value = new Values()
+                    {
+                        data = x.ToString(),
+                        name = "prime"
+                    };
+                    answerValues.Add(value);
+                }
+            }
+
+            var answer = new Challenge1Answer()
+            {
+                challengeId = id,
+                values = answerValues
+            };
+
+            Thread.Sleep(1000);
+            var body = CreateJsonBody(answer);
+            var postRes = await _client.PostAsync(_base_url + "7a34919d6dd4c2d9c3f05c6957946b82", body);
+
+            var jsonbla = await body.ReadAsStringAsync();
+            var responsebla = JsonConvert.DeserializeObject<Challenge1Answer>(jsonbla);
+            var resbla = await postRes.Content.ReadAsStringAsync();
+            var bla = "";
         }
 
         private StringContent CreateJsonBody<T>(T message)

@@ -18,7 +18,7 @@ namespace HackTheFuture2018
 
         public static async Task Main(string[] args)
         {
-            await htfClient.PostChallenge2();
+            await htfClient.PostChallenge4();
             CreateWebHostBuilder(args).Build().Run();
         }
 

@@ -10,7 +10,7 @@ namespace HackTheFuture2018.Messages
     public class Challenge1Answer
     {
         public string challengeId { get; set; }
-        public ICollection<Values> values { get; set; }
+        public IEnumerable<Values> values { get; set; }
     }
 
     public class Values
